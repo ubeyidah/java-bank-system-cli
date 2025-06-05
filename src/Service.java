@@ -7,9 +7,8 @@ public class Service {
         String username = scanner.nextLine();
         BankDB bankDB = new BankDB();
         // Todo: validate user name
-        if(bankDB.checkUserame(username)){
-            System.out.println("Username already exists!");
-            return;
+        if(!bankDB.checkUserame(username)){
+            throw new IllegalArgumentException("failed: Username already exists!");
         }
         System.out.print("Enter password: ");
         String password = scanner.nextLine();
@@ -20,4 +19,6 @@ public class Service {
         System.out.println("Account Number: " + user.getACcountNumber());
         System.out.println("Account created successfully!");
     }
+
+
 }

@@ -11,7 +11,11 @@ public class Main {
                 int choice = scanner.nextInt();
                 switch (choice){
                     case 1:
-                        accountService.createAccount();
+                        try{
+                            accountService.createAccount();
+                        }catch(Exception e){
+                            System.out.println(e.getMessage());
+                        }
                         break;
                     case 2:
                         System.out.println("login....");
