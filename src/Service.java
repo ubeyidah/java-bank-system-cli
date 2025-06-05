@@ -53,7 +53,7 @@ public class Service {
                        deposit(user);
                         break;
                     case 3:
-                        System.out.println("Withdrawing...");
+                        withdraw(user);
                         break;
                     case 4:
                         System.out.println("Logged out.");
@@ -85,6 +85,26 @@ public class Service {
             double amount = scanner.nextDouble();
             user.deposit(amount);
             System.out.println("Deposited.");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void withdraw(User user){
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter amount to withdraw: ");
+            double amount = scanner.nextDouble();
+            scanner.nextLine();
+            System.out.print("Enter password: ");
+            String password = scanner.nextLine();
+            boolean canWithdraw = user.checkPassword(password);
+            if(!canWithdraw){
+                throw new IllegalArgumentException("withdraw failed: incorrect password");
+            }
+            user.withdraw(amount);
+            System.out.println("Withdrawn.");
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
