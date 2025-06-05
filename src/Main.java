@@ -13,6 +13,9 @@ public class Main {
                 System.out.print("$: ");
                 int choice = scanner.nextInt();
                 switch (choice){
+                    case 0:
+                        welcomeText();
+                        break;
                     case 1:
                         try{
                             accountService.createAccount();
@@ -45,6 +48,7 @@ public class Main {
 
     public static void welcomeText() {
         System.out.println("--- Welcome to Simple Bank System ---");
+        System.out.println("0. Help");
         System.out.println("1. Create Account");
         System.out.println("2. Login");
         System.out.println("3. Exit");

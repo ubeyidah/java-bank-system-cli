@@ -42,10 +42,13 @@ public class Service {
             System.out.println("-------------------------------");
 
             Scanner scanner = new Scanner(System.in);
-            System.out.print("$: ");
+            System.out.print("$("+user.getUsername()+"): ");
             try{
                 int choice = scanner.nextInt();
                 switch (choice){
+                    case 0:
+                        dashboardText(user.getUsername());
+                        break;
                     case 1:
                         System.out.println("Your balance: Birr "+ user.getBalance());
                         break;
@@ -72,6 +75,7 @@ public class Service {
 
     public static void dashboardText(String username) {
         System.out.println("\nWelcome, " + username + "!");
+        System.out.println("0. Help");
         System.out.println("1. View Balance");
         System.out.println("2. Deposit");
         System.out.println("3. Withdraw");
