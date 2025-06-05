@@ -32,7 +32,7 @@ public class Main {
     }
 
     public static void welcomeText() {
-        System.out.println("\n--- Welcome to Simple Bank System ---");
+        System.out.println("--- Welcome to Simple Bank System ---");
         System.out.println("1. Create Account");
         System.out.println("2. Login");
         System.out.println("3. Exit");
