@@ -3,9 +3,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         welcomeText();
+        Scanner scanner = new Scanner(System.in);
+        Service accountService = new Service();
+
         while (true) {
-            Scanner scanner = new Scanner(System.in);
-            Service accountService = new Service();
             try{
                 System.out.print("Choose: ");
                 int choice = scanner.nextInt();
@@ -18,7 +19,11 @@ public class Main {
                         }
                         break;
                     case 2:
-                        System.out.println("login....");
+                        try{
+                            accountService.login();
+                        }catch(Exception e){
+                            System.out.println(e.getMessage());
+                        }
                         break;
                     case 3:
                         System.out.println("Thanks for using the bank.");
