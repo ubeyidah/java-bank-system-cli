@@ -5,12 +5,13 @@ public class Main {
         welcomeText();
         while (true) {
             Scanner scanner = new Scanner(System.in);
+            Service accountService = new Service();
             try{
                 System.out.print("Choose: ");
                 int choice = scanner.nextInt();
                 switch (choice){
                     case 1:
-                        System.out.println("account creating....");
+                        accountService.createAccount();
                         break;
                     case 2:
                         System.out.println("login....");
