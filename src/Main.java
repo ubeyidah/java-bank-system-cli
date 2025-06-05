@@ -8,7 +8,9 @@ public class Main {
 
         while (true) {
             try{
-                System.out.print("Choose: ");
+                System.out.println("-------------------------------");
+
+                System.out.print("$: ");
                 int choice = scanner.nextInt();
                 switch (choice){
                     case 1:

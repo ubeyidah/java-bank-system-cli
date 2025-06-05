@@ -37,10 +37,56 @@ public class Service {
 
     }
     public static  void userDashboard(User user){
+        dashboardText(user.getUsername());
         while (true){
+            System.out.println("-------------------------------");
+
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Welcome "+user.getUsername());
-            String n = scanner.nextLine();
+            System.out.print("$: ");
+            try{
+                int choice = scanner.nextInt();
+                switch (choice){
+                    case 1:
+                        System.out.println("Your balance: Birr "+ user.getBalance());
+                        break;
+                    case 2:
+                       deposit(user);
+                        break;
+                    case 3:
+                        System.out.println("Withdrawing...");
+                        break;
+                    case 4:
+                        System.out.println("Logged out.");
+                        return;
+                    default:
+                        System.out.println("Invalid choice.");
+                }
+            }
+            catch (Exception err){
+                System.out.println("Invalid choice. only integer is accepted!");
+            }
+        }
+
+
+    }
+
+    public static void dashboardText(String username) {
+        System.out.println("\nWelcome, " + username + "!");
+        System.out.println("1. View Balance");
+        System.out.println("2. Deposit");
+        System.out.println("3. Withdraw");
+        System.out.println("4. Logout");
+    }
+
+    public static void deposit(User user){
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Enter amount to deposit: ");
+            double amount = scanner.nextDouble();
+            user.deposit(amount);
+            System.out.println("Deposited.");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }
